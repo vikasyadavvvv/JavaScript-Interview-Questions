@@ -247,8 +247,57 @@ console.log(0 === -0);     // true
 // Object comparison
 const obj1 = {a: 1};
 const obj2 = {a: 1};
+
 console.log(obj1 == obj2);  // false
 console.log(obj1 === obj2); // false (different references)
 console.log(obj1 == obj1);  // true
 console.log(obj1 === obj1); // true (same reference)
 ```
+
+## 7. Template Literals in JavaScript
+
+### Answer:
+Template literals are an ES6 feature that provide a modern way to work with strings in JavaScript. They use backticks (`` ` ``) instead of single or double quotes and offer powerful features like:
+- Multi-line strings without escape characters
+- String interpolation with embedded expressions
+- Tagged templates for custom string processing
+
+### Key Features:
+
+```javascript
+// Basic template literal
+const name = 'Alice';
+const greeting = `Hello, ${name}!`;
+console.log(greeting); // "Hello, Alice!"
+
+// Multi-line strings
+const message = `
+  This is a
+  multi-line
+  string
+`;
+console.log(message);
+
+// Expression interpolation
+const a = 5;
+const b = 10;
+console.log(`The sum is ${a + b}`); // "The sum is 15"
+
+// Function calls in templates
+function capitalize(str) {
+  return str.toUpperCase();
+}
+console.log(`Shout: ${capitalize('hello')}`); // "Shout: HELLO"
+
+// Tagged templates
+function highlight(strings, ...values) {
+  return strings.reduce((result, str, i) => 
+    `${result}${str}<span class="hl">${values[i] || ''}</span>`, '');
+}
+
+const user = 'Bob';
+const age = 25;
+const html = highlight`User ${user} is ${age} years old`;
+// "<span class="hl">Bob</span> is <span class="hl">25</span> years old"
+```
+
