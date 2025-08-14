@@ -112,3 +112,30 @@ let baz = function() {
   console.log("!");
 };
 ```
+
+## 4. Closures in JavaScript
+
+### Answer:
+In JavaScript, a closure is created when an inner function has access to variables from its outer (enclosing) function, even after the outer function has finished executing. The inner function "closes over" these variables, preserving them in memory.
+
+### Key Characteristics:
+- Closures have access to their own scope, outer function's variables, and global variables
+- The outer function's variables remain in memory after execution
+- Each closure maintains its own reference to these variables
+
+### Code Examples:
+
+```javascript
+function Outter(){
+    let a=10;
+    let b=20;
+    
+    console.log(`Addition`,a+b)
+    
+    function Inner(){
+        console.log(`Multiply`,a*b)
+    }
+    Inner()
+}
+Outter()
+```
