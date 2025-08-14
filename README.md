@@ -363,3 +363,52 @@ const numbers = [1, 2, 3, 4];
 const doubled = numbers.map((num) => num * 2);
 console.log(doubled); // [2, 4, 6, 8]
 ```
+
+## 9. Null vs Undefined in JavaScript
+
+### Answer:
+JavaScript has two distinct primitive values representing absence of value:
+
+| Value      | Type      | Meaning                                                                 |
+|------------|-----------|-------------------------------------------------------------------------|
+| `null`     | object    | Intentional absence of any object value (explicit "nothing")            |
+| `undefined`| undefined | Variable declared but not assigned, or missing object property         |
+
+### Key Differences:
+
+```javascript
+// Undefined examples
+let unassignedVar;
+console.log(unassignedVar); // undefined
+
+const obj = {};
+console.log(obj.nonExistentProp); // undefined
+
+function missingParam(param) {
+  console.log(param); // undefined when called without argument
+}
+missingParam();
+
+// Null examples
+const explicitNull = null;
+console.log(explicitNull); // null
+
+const user = { name: 'Alice', address: null }; // Explicitly no address
+console.log(user.address); // null
+
+// Comparison
+console.log(typeof null);      // 'object' (historical bug)
+console.log(typeof undefined); // 'undefined'
+
+console.log(null == undefined);   // true (loose equality)
+console.log(null === undefined);  // false (strict equality)
+
+// Practical usage
+function getValue(mightBeNull) {
+  return mightBeNull ?? 'default value'; // Nullish coalescing
+}
+
+console.log(getValue(null));      // 'default value'
+console.log(getValue(undefined)); // 'default value'
+console.log(getValue(0));         // 0
+```
