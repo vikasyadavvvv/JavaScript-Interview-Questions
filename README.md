@@ -301,3 +301,65 @@ const html = highlight`User ${user} is ${age} years old`;
 // "<span class="hl">Bob</span> is <span class="hl">25</span> years old"
 ```
 
+## 8. Callbacks in JavaScript
+
+### Answer:
+Callbacks are functions that are passed as arguments to other functions and are executed after a specific task completes. They are fundamental to asynchronous operations in JavaScript.
+
+### Key Characteristics:
+- **Asynchronous Control**: Handle operations that complete at unknown times
+- **Higher-Order Functions**: Functions that accept other functions as arguments
+- **Continuation Passing**: Pattern where control flows through callbacks
+
+### Code Examples:
+
+```javascript
+// Basic callback example
+function greet(name, callback) {
+  console.log(`Hello, ${name}!`);
+  callback();
+}
+
+function sayGoodbye() {
+  console.log('Goodbye!');
+}
+
+greet('Alice', sayGoodbye);
+// Output:
+// Hello, Alice!
+// Goodbye!
+
+// Asynchronous callback (simulated with setTimeout)
+function fetchData(callback) {
+  setTimeout(() => {
+    const data = { id: 1, name: 'John Doe' };
+    callback(data);
+  }, 1000);
+}
+
+fetchData((data) => {
+  console.log('Data received:', data);
+});
+
+// Error-first callback pattern (Node.js convention)
+function divide(a, b, callback) {
+  if (b === 0) {
+    callback(new Error('Cannot divide by zero'), null);
+  } else {
+    callback(null, a / b);
+  }
+}
+
+divide(10, 2, (err, result) => {
+  if (err) {
+    console.error('Error:', err.message);
+  } else {
+    console.log('Result:', result);
+  }
+});
+
+// Callback in array method
+const numbers = [1, 2, 3, 4];
+const doubled = numbers.map((num) => num * 2);
+console.log(doubled); // [2, 4, 6, 8]
+```
