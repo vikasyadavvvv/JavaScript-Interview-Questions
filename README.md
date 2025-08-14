@@ -139,3 +139,67 @@ function Outter(){
 }
 Outter()
 ```
+
+## 5. JavaScript Scopes (Variable Accessibility)
+
+### Answer:
+Scope determines where variables are accessible in your code. JavaScript has three main types of scope:
+
+### 1. Global Scope
+- Variables declared outside any function or block
+- Accessible from anywhere in the code
+- Can lead to naming collisions and pollution
+
+### 2. Function Scope
+- Variables declared inside a function
+- Only accessible within that function
+- Applies to `var` declarations
+
+### 3. Block Scope
+- Variables declared within curly braces `{}` (if statements, loops, etc.)
+- Only accessible within that block
+- Applies to `let` and `const` declarations
+
+### Code Examples:
+
+```javascript
+// Global Scope
+const globalVar = 'I am global';
+
+function scopeDemo() {
+  // Function Scope
+  var functionVar = 'I am function scoped';
+  let blockVar = 'I am block scoped';
+  
+  console.log(globalVar); // Accessible
+  console.log(functionVar); // Accessible
+  
+  if (true) {
+    // Block Scope
+    let innerBlockVar = 'I am inner block';
+    console.log(blockVar); // Accessible
+  }
+  
+  // console.log(innerBlockVar); // ReferenceError - not accessible
+}
+
+scopeDemo();
+// console.log(functionVar); // ReferenceError - not accessible
+
+// Block Scope Example
+{
+  const blockScoped = 'Only available in this block';
+  let anotherBlockVar = 'Same here';
+}
+// console.log(blockScoped); // ReferenceError
+// console.log(anotherBlockVar); // ReferenceError
+
+// var vs let/const in loops
+for (var i = 0; i < 3; i++) {
+  setTimeout(() => console.log(i), 100); // Logs 3, 3, 3
+}
+
+for (let j = 0; j < 3; j++) {
+  setTimeout(() => console.log(j), 100); // Logs 0, 1, 2
+}
+```
