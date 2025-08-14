@@ -203,3 +203,52 @@ for (let j = 0; j < 3; j++) {
   setTimeout(() => console.log(j), 100); // Logs 0, 1, 2
 }
 ```
+
+## 6. Difference between == and === in JavaScript
+
+### Answer:
+JavaScript has two equality comparison operators with different behaviors:
+
+| Operator | Name           | Comparison Method               | Type Coercion |
+|----------|----------------|----------------------------------|---------------|
+| `==`     | Loose Equality | Checks value only               | Yes           |
+| `===`    | Strict Equality| Checks both value and data type | No            |
+
+### Key Differences:
+- `==` performs type coercion before comparison
+- `===` does not perform type coercion (safer)
+- Always prefer `===` unless you specifically need type coercion
+
+### Code Examples:
+
+```javascript
+// Loose equality (==) examples
+console.log(5 == '5');      // true (type coercion)
+console.log(true == 1);     // true
+console.log(null == undefined); // true
+console.log('' == 0);       // true
+console.log([] == false);   // true
+console.log([1,2] == '1,2'); // true
+
+// Strict equality (===) examples
+console.log(5 === '5');     // false (different types)
+console.log(true === 1);    // false
+console.log(null === undefined); // false
+console.log('' === 0);      // false
+console.log([] === false);  // false
+console.log([1,2] === '1,2'); // false
+
+// Special cases
+console.log(NaN == NaN);   // false
+console.log(NaN === NaN);  // false (use isNaN() instead)
+console.log(0 == -0);      // true
+console.log(0 === -0);     // true
+
+// Object comparison
+const obj1 = {a: 1};
+const obj2 = {a: 1};
+console.log(obj1 == obj2);  // false
+console.log(obj1 === obj2); // false (different references)
+console.log(obj1 == obj1);  // true
+console.log(obj1 === obj1); // true (same reference)
+```
