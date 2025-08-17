@@ -21,6 +21,17 @@ JavaScript has two main categories of data types:
   - `Date` - date and time information
   - and other object types)
 
+## Primitive Data Types
+Basic, simple types of data.
+They store only one value at a time.
+They are immutable (cannot be changed directly).
+
+## Non-Primitive (Reference) Data Types
+More complex types.
+They can store multiple values or a collection.
+They are mutable (can be changed).
+
+
 ## 2. Difference between var, let and const
 
 ### Answer:
