@@ -498,3 +498,20 @@ const obj2 = {
   }
 };
 ```
+## 13.# IIFE (Immediately Invoked Function Expression) in JavaScript
+
+## What is an IIFE?
+An IIFE is a JavaScript function that runs as soon as it is defined. The syntax consists of two main parts:
+1. The function expression wrapped in parentheses `(function(){...})`
+2. The immediate execution parentheses `()`
+3. Why Use IIFEs?
+ Avoid Polluting Global Scope
+IIFEs create a private scope where variables don't leak to the global scope.
+
+```javascript
+// Basic IIFE Syntax
+(function() {
+  console.log('This runs immediately!');
+})();
+```
+
