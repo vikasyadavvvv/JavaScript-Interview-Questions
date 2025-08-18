@@ -82,6 +82,7 @@ function example() {
 example();
 ```
 
+
 ## 3. Hoisting in JavaScript
 
 ### Answer:
@@ -124,6 +125,7 @@ let baz = function() {
 };
 ```
 
+
 ## 4. Closures in JavaScript
 
 ### Answer:
@@ -150,6 +152,7 @@ function Outter(){
 }
 Outter()
 ```
+
 
 ## 5. JavaScript Scopes (Variable Accessibility)
 
@@ -215,6 +218,7 @@ for (let j = 0; j < 3; j++) {
 }
 ```
 
+
 ## 6. Difference between == and === in JavaScript
 
 ### Answer:
@@ -265,6 +269,7 @@ console.log(obj1 == obj1);  // true
 console.log(obj1 === obj1); // true (same reference)
 ```
 
+
 ## 7. Template Literals in JavaScript
 
 ### Answer:
@@ -311,6 +316,7 @@ const age = 25;
 const html = highlight`User ${user} is ${age} years old`;
 // "<span class="hl">Bob</span> is <span class="hl">25</span> years old"
 ```
+
 
 ## 8. Callbacks in JavaScript
 
@@ -375,6 +381,7 @@ const doubled = numbers.map((num) => num * 2);
 console.log(doubled); // [2, 4, 6, 8]
 ```
 
+
 ## 9. Null vs Undefined in JavaScript
 
 ### Answer:
@@ -424,6 +431,7 @@ console.log(getValue(undefined)); // 'default value'
 console.log(getValue(0));         // 0
 ```
 
+
 ## 10. Function Declarations vs Expressions in JavaScript
 
 ### A function declaration is when you create a function using the `function` keyword followed by a name. This is the most basic way to define a function in JavaScript.
@@ -443,6 +451,7 @@ const greet = function(name) {
   return `Hello, ${name}!`;
 };
 ```
+
 
 ## 11. Understanding `this` in JavaScript
 
@@ -466,6 +475,7 @@ const person = {
 };
 person.greet(); // "Hello, my name is John"
 ```
+
 
 ## 12. Arrow Functions vs Regular Functions in JavaScript
 
@@ -498,6 +508,8 @@ const obj2 = {
   }
 };
 ```
+
+
 ## 13.# IIFE (Immediately Invoked Function Expression) in JavaScript
 
 ## What is an IIFE?
@@ -513,5 +525,24 @@ IIFEs create a private scope where variables don't leak to the global scope.
 (function() {
   console.log('This runs immediately!');
 })();
+```
+
+
+## 13. JavaScript Destructuring
+
+Destructuring allows you to unpack values from arrays or properties from objects into distinct variables.
+
+## Object Destructuring
+
+### Basic Syntax
+```javascript
+const person = { name: 'John', age: 30 };
+
+// Traditional way
+const name = person.name;
+const age = person.age;
+
+// With destructuring
+const { name, age } = person;
 ```
 
