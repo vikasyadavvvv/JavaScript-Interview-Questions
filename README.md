@@ -466,3 +466,35 @@ const person = {
 };
 person.greet(); // "Hello, my name is John"
 ```
+
+## 12. Arrow Functions vs Regular Functions in JavaScript
+
+## Key Difference: `this` Binding
+
+Arrow functions are shorter and cleaner, and they inherit `this` from their parent scope. This makes them ideal for:
+- Callbacks
+- Methods where you want to preserve the outer context
+
+```javascript
+// Regular function - has its own `this`
+const obj1 = {
+  count: 0,
+  increment: function() {
+    setInterval(function() {
+      this.count++; // ❌ Wrong `this` (points to window)
+      console.log(this.count); // NaN
+    }, 1000);
+  }
+};
+
+// Arrow function - inherits `this` from parent
+const obj2 = {
+  count: 0,
+  increment: function() {
+    setInterval(() => {
+      this.count++; // ✅ Correct `this` (points to obj2)
+      console.log(this.count); // 1, 2, 3...
+    }, 1000);
+  }
+};
+```
