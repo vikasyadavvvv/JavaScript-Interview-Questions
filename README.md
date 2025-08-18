@@ -424,7 +424,7 @@ console.log(getValue(undefined)); // 'default value'
 console.log(getValue(0));         // 0
 ```
 
-## 10. # Function Declarations vs Expressions in JavaScript
+## 10. Function Declarations vs Expressions in JavaScript
 
 ### A function declaration is when you create a function using the `function` keyword followed by a name. This is the most basic way to define a function in JavaScript.
 
@@ -442,3 +442,27 @@ function functionName(parameters) {
 const greet = function(name) {
   return `Hello, ${name}!`;
 };
+```
+
+## 11. Understanding `this` in JavaScript
+
+## What is `this`?
+In JavaScript, `this` refers to the execution context - the object that "owns" the currently executing code. Its value changes depending on how a function is called.
+
+## Basic Rules of `this`
+
+In the global scope, `this` refers to the global object (`window` in browsers, `global` in Node.js).
+
+```javascript
+console.log(this); // Window {...} (in browser)
+```
+
+```
+const person = {
+  name: 'John',
+  greet() {
+    console.log(`Hello, my name is ${this.name}`);
+  }
+};
+person.greet(); // "Hello, my name is John"
+```
