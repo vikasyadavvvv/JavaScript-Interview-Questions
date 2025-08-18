@@ -38,7 +38,7 @@ They are mutable (can be changed).
 
 | Feature        | var                  | let                  | const                |
 |---------------|----------------------|----------------------|----------------------|
-| **Scope**     | Global or function   | Block                | Block                |
+| **Scope**     |  function            | Block                | Block                |
 | **Hoisting**  | Hoisted and initialized with `undefined` | Hoisted but not initialized (Temporal Dead Zone) | Hoisted but not initialized (Temporal Dead Zone) |
 | **Reassignment** | Can be updated      | Can be updated       | Cannot be updated    |
 | **Redeclaration** | Can be redeclared | Cannot be redeclared in same scope | Cannot be redeclared |
