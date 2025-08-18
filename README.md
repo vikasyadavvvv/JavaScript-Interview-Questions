@@ -423,3 +423,22 @@ console.log(getValue(null));      // 'default value'
 console.log(getValue(undefined)); // 'default value'
 console.log(getValue(0));         // 0
 ```
+
+## 10. # Function Declarations vs Expressions in JavaScript
+
+### A function declaration is when you create a function using the `function` keyword followed by a name. This is the most basic way to define a function in JavaScript.
+
+```javascript
+// Function Declaration Syntax
+function functionName(parameters) {
+  // function body
+  return value;
+}
+```
+### A function expression occurs when you assign a function to a variable. Unlike declarations, these are not hoisted and must be defined before use.
+
+```javascript
+// Basic Function Expression
+const greet = function(name) {
+  return `Hello, ${name}!`;
+};
