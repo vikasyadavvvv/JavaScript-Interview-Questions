@@ -644,3 +644,39 @@ JavaScript is single-threaded (it executes one thing at a time).
 But it can handle asynchronous tasks (like API calls, setTimeout, promises) without blocking the main thread.
 👉 The Event Loop is the mechanism that makes this possible.
 
+## 17. What is Promise ?
+A Promise is an object in JavaScript that represents an asynchronous task.
+- It executes some work (like API calls, file reading, timers, etc.) and will either:
+- succeed (fulfilled) → return a value
+- fail (rejected) → return an error
+
+- It has 3 states:
+- Pending – initial state, still running
+- Fulfilled – task finished successfully
+- Rejected – task failed
+
+- To handle results:
+- .then() → runs when the promise is fulfilled (success)
+- .catch() → runs when the promise is rejected (error)
+- .finally() → runs no matter what (cleanup work)
+
+👉 In short: Promises are used to handle asynchronous operations (like API calls) in a cleaner and more manageable way than callbacks.
+```javascript
+let promise = new Promise((resolve, reject) => {
+  let dataFetched = true;
+
+  if (dataFetched) {
+    resolve("✅ Data fetched successfully");
+  } else {
+    reject("❌ Failed to fetch data");
+  }
+});
+
+// Handling the promise
+promise
+  .then(result => console.log(result))   // if resolved
+  .catch(error => console.log(error))    // if rejected
+  .finally(() => console.log("Done"));   // always runs
+
+```
+
