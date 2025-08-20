@@ -634,7 +634,7 @@ console.log(person.fullName); // "Vikas Yadav" (no parentheses needed)
 // Using setter
 person.fullName = "Rahul Sharma";
 console.log(person.firstName); // "Rahul"
-console.log(person.lastName);  // "Sharma"
+console.log(person.lastName);  // "Verma"
 ```
 
 
