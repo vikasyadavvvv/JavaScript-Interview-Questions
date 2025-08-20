@@ -546,3 +546,58 @@ const age = person.age;
 const { name, age } = person;
 ```
 
+
+## 14. Shallow clone and Deep Clone in javascript (How to Clone Object)
+
+### A shallow clone creates a new object/array, but it only copies the first level of properties.
+If the object has nested objects (or arrays), the clone will still reference the same nested objects in memory.
+
+👉 Meaning: If you change something in the nested object of the clone, it will also affect the original.
+```
+let obj1 = {
+  name: "Vikas",
+  address: {
+    city: "Mumbai",
+    pincode: 400070
+  }
+};
+
+// Shallow clone using spread
+let obj2 = { ...obj1 };
+
+obj2.name = "Rahul"; // changes only obj2
+obj2.address.city = "Delhi"; // changes both obj1 and obj2 because 'address' is shared
+
+console.log(obj1.address.city); // "Delhi"
+
+```
+### A deep clone creates a completely independent copy of the object, including all nested objects/arrays.
+So, changing the clone will not affect the original at any level.
+```
+let obj1 = {
+  name: "Vikas",
+  address: {
+    city: "Mumbai",
+    pincode: 400070
+  }
+};
+
+// Deep clone using JSON methods
+let obj2 = JSON.parse(JSON.stringify(obj1));
+
+obj2.name = "Rahul";
+obj2.address.city = "Delhi";
+
+console.log(obj1.address.city); // "Mumbai" (original is safe)
+
+```
+⚡ Ways to Clone
+Shallow Clone:
+Spread operator: { ...obj }
+Object.assign({}, obj)
+Array.slice() or [...array]
+
+Deep Clone:
+JSON.parse(JSON.stringify(obj) (simple but fails for functions, Date, Map, Set, etc.)
+structuredClone(obj) (modern, supports most types except functions)
+
