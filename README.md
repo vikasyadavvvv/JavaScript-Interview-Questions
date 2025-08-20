@@ -637,3 +637,10 @@ console.log(person.firstName); // "Rahul"
 console.log(person.lastName);  // "Sharma"
 ```
 
+
+##16. What is the Event Loop?
+
+JavaScript is single-threaded (it executes one thing at a time).
+But it can handle asynchronous tasks (like API calls, setTimeout, promises) without blocking the main thread.
+👉 The Event Loop is the mechanism that makes this possible.
+
