@@ -593,11 +593,11 @@ console.log(obj1.address.city); // "Mumbai" (original is safe)
 ```
 ⚡ Ways to Clone
 Shallow Clone:
-- **Spread operator: { ...obj }
-- **Object.assign({}, obj)
-- **Array.slice() or [...array]
+- Spread operator: { ...obj }
+- Object.assign({}, obj)
+- Array.slice() or [...array]
 
 Deep Clone:
-- **JSON.parse(JSON.stringify(obj) (simple but fails for functions, Date, Map, Set, etc.)
-- **structuredClone(obj) (modern, supports most types except functions)
+- JSON.parse(JSON.stringify(obj) (simple but fails for functions, Date, Map, Set, etc.)
+- structuredClone(obj) (modern, supports most types except functions)
 
