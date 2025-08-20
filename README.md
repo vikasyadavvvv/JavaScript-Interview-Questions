@@ -650,12 +650,12 @@ A Promise is an object in JavaScript that represents an asynchronous task.
 - succeed (fulfilled) → return a value
 - fail (rejected) → return an error
 
-- It has 3 states:
+ It has 3 states:
 - Pending – initial state, still running
 - Fulfilled – task finished successfully
 - Rejected – task failed
 
-- To handle results:
+ To handle results:
 - .then() → runs when the promise is fulfilled (success)
 - .catch() → runs when the promise is rejected (error)
 - .finally() → runs no matter what (cleanup work)
