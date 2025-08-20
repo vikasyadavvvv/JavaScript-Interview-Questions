@@ -601,3 +601,39 @@ Deep Clone:
 - JSON.parse(JSON.stringify(obj) (simple but fails for functions, Date, Map, Set, etc.)
 - structuredClone(obj) (modern, supports most types except functions)
 
+
+
+## 15. What are Getters and Setters?
+
+In JavaScript, getters and setters are special methods that let you control how properties of an object are accessed (read) and modified (written).
+
+- Getter (get) → Used to access a property (like a function but looks like a property).
+- Setter (set) → Used to change a property (can add validation, transform data, etc.).
+
+```
+let person = {
+  firstName: "Vikas",
+  lastName: "Yadav",
+
+  // Getter
+  get fullName() {
+    return `${this.firstName} ${this.lastName}`;
+  },
+
+  // Setter
+  set fullName(name) {
+    let parts = name.split(" ");
+    this.firstName = parts[0];
+    this.lastName = parts[1];
+  }
+};
+
+// Using getter
+console.log(person.fullName); // "Vikas Yadav" (no parentheses needed)
+
+// Using setter
+person.fullName = "Rahul Sharma";
+console.log(person.firstName); // "Rahul"
+console.log(person.lastName);  // "Sharma"
+```
+
