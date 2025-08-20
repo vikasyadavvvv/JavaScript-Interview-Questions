@@ -553,7 +553,7 @@ const { name, age } = person;
 If the object has nested objects (or arrays), the clone will still reference the same nested objects in memory.
 
 👉 Meaning: If you change something in the nested object of the clone, it will also affect the original.
-```
+```javascript
 let obj1 = {
   name: "Vikas",
   address: {
@@ -573,7 +573,7 @@ console.log(obj1.address.city); // "Delhi"
 ```
 ### A deep Clone creates a completely independent copy of the object, including all nested objects/arrays.
 So, changing the clone will not affect the original at any level.
-```
+```javascript
 let obj1 = {
   name: "Vikas",
   address: {
@@ -610,7 +610,7 @@ In JavaScript, getters and setters are special methods that let you control how 
 - Getter (get) → Used to access a property (like a function but looks like a property).
 - Setter (set) → Used to change a property (can add validation, transform data, etc.).
 
-```
+```javascript
 let person = {
   firstName: "Vikas",
   lastName: "Yadav",
