@@ -847,4 +847,122 @@ greetVikas(); // Output: Hey, Vikas
 
 ```
 
+## 23. What is a Higher-Order Function?
 
+- A Higher-Order Function is a function that either:
+- Takes one or more functions as arguments, or
+- Returns a function as its result.
+- Basically, functions that operate on other functions.
+Example:
+```javascript
+function greet(name, formatter) {
+  console.log(formatter(name));
+}
+
+function uppercaseName(name) {
+  return name.toUpperCase();
+}
+
+function lowercaseName(name) {
+  return name.toLowerCase();
+}
+
+greet("Vikas", uppercaseName); // VIKAS
+greet("Vikas", lowercaseName); // vikas
+
+```
+
+## 24. What is a Pure Function?
+
+- A pure function is a function that:
+- Always returns the same output for the same input.
+- Does not produce side effects (does not modify external variables or states).
+- ✅ Key idea: Output depends only on input, and calling the function does not affect anything else.
+Example:
+```javascript
+function add(a, b) {
+  return a + b;
+}
+
+console.log(add(2, 3)); // 5
+console.log(add(2, 3)); // 5 (always same output)
+```
+
+## 25. What is Memoization?
+
+- Memoization is an optimization technique where you store the results of expensive function calls and return the cached result when the same inputs occur again.
+- ✅ Key idea: Avoid repeated calculations by remembering previous results.
+Example:
+```javascript
+function fibonacciMemo() {
+  const cache = {};
+
+  return function fib(n) {
+    if (n in cache) return cache[n]; // return cached value
+    if (n <= 1) return n;
+
+    cache[n] = fib(n - 1) + fib(n - 2); // store result
+    return cache[n];
+  };
+}
+
+const fib = fibonacciMemo();
+
+console.log(fib(10)); // 55
+console.log(fib(50)); // 12586269025 (computed fast)
+
+```
+
+## 26. 1. Synchronous
+
+- Definition: Code is executed line by line, one at a time, in the order it appears.
+- Each operation waits for the previous one to finish.
+- If a task takes time (like fetching data), it blocks the next lines until it completes.
+
+Example:
+```javascript
+console.log("Start");
+
+function task1() {
+  console.log("Task 1 complete");
+}
+
+function task2() {
+  console.log("Task 2 complete");
+}
+
+task1();
+task2();
+
+console.log("End");
+
+```
+
+2. Asynchronous
+
+- Definition: Code can run out of order.
+- Some tasks (like network requests, timers) can run in the background without blocking other code.
+- Allows handling long-running tasks efficiently.
+Example:
+```javascript
+console.log("Start");
+
+setTimeout(() => {
+  console.log("Task 1 complete");
+}, 2000);
+
+console.log("Task 2 complete");
+
+console.log("End");
+
+```
+
+## 27. Throttling
+
+- Definition: Ensures a function is executed at most once every specified interval, no matter how many times the event is triggered.
+- Useful for events that fire frequently, like scroll, resize, or mousemove.
+
+Debouncing
+
+- Definition: Ensures a function is executed only after a specified delay since the last trigger.
+- Useful for reducing calls for events that happen in bursts, like keypress, input, or search suggestions.
