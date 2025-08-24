@@ -820,8 +820,10 @@ student.study(); // Own method
 
 ```
 
-## 22. | Method    | Executes Immediately? | Notes                                                                                    |
-| --------- | ---------------------  | ---------------------------------------------------------------------------------------- |
+## 22. | Method    | Executes Immediately? | Notes  
+
+|  Method   | Executes Immediately?  | Arguments Format                                                                         |
+| --------- | ---------------------  | ---------------------------------------------------------------------------------------- | 
 | **call**  | ✅ Yes                 | The function is **executed immediately** with the given `this` and arguments.            |
 | **apply** | ✅ Yes                 | Same as `call`, but arguments are passed as an **array**.                                |
 | **bind**  | ❌ No                  | **Does not execute immediately**. It returns a **new function** that you can call later. |
