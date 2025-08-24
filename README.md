@@ -680,3 +680,37 @@ promise
 
 ```
 
+## 17. What is async/await in JavaScript?
+
+async and await are keywords in JavaScript that make working with asynchronous code easier and more readable, compared to using callbacks or .then() with promises.
+async function
+Declares a function as asynchronous.
+Always returns a Promise, even if you return a simple value.
+await keyword
+Can only be used inside an async function.
+Waits for a Promise to resolve and returns the resolved value.
+Makes asynchronous code look synchronous.
+```javascript
+// A function that returns a Promise
+function fetchData() {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      resolve("Data received!");
+    }, 2000); // simulating 2-second delay
+  });
+}
+
+// Using async/await
+async function getData() {
+  console.log("Fetching data...");
+  
+  const result = await fetchData(); // wait for fetchData() to resolve
+  console.log(result); // "Data received!"
+  
+  console.log("Process completed.");
+}
+
+getData();
+
+```
+
