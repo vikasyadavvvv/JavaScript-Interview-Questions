@@ -714,3 +714,135 @@ getData();
 
 ```
 
+## 18. setTimeout
+Purpose: Executes a function once after a specified delay (in milliseconds).
+
+Syntax:
+```javascript
+console.log("Start");
+
+setTimeout(() => {
+  console.log("Executed after 2 seconds");
+}, 2000); // 2000 ms = 2 seconds
+
+console.log("End");
+```
+- setInterval
+Purpose: Executes a function repeatedly at a fixed interval (in milliseconds).
+Syntax:
+```javascript
+let count = 0;
+
+const intervalId = setInterval(() => {
+  count++;
+  console.log("Count:", count);
+
+  if (count === 5) {
+    clearInterval(intervalId); // stop the interval after 5 counts
+  }
+}, 1000); // runs every 1 second
+
+```
+## 19. What is Callback Hell?
+
+- Callback Hell happens when you have multiple nested callbacks in JavaScript, making the code hard to read, maintain, and debug.
+- This usually occurs in asynchronous programming when you depend on the result of one async operation to run another.
+Example:
+```javascript
+console.log("Start");
+
+getUser(1, (user) => {
+  getOrders(user.id, (orders) => {
+    getOrderDetails(orders[0].id, (details) => {
+      console.log("Order Details:", details);
+    });
+  });
+});
+
+console.log("End");
+
+// Simulated async functions
+function getUser(id, callback) {
+  setTimeout(() => {
+    console.log("Fetched user");
+    callback({ id: id, name: "Vikas" });
+  }, 1000);
+}
+
+function getOrders(userId, callback) {
+  setTimeout(() => {
+    console.log("Fetched orders for user", userId);
+    callback([{ id: 101, item: "Laptop" }]);
+  }, 1000);
+}
+
+function getOrderDetails(orderId, callback) {
+  setTimeout(() => {
+    console.log("Fetched order details for order", orderId);
+    callback({ id: orderId, status: "Shipped" });
+  }, 1000);
+}
+
+```
+
+## 20. What is Event Delegation?
+
+- Event Delegation is a technique in JavaScript where you attach a single event listener to a parent element to handle events on its child elements, instead of adding separate listeners to each child.
+- This works because of event bubbling: when an event occurs on a child, it bubbles up to its parent elements.
+
+## 21. What is Prototypal Inheritance?
+
+- In JavaScript, objects can inherit properties and methods from other objects. This is called prototypal inheritance.
+- Every JavaScript object has an internal property called [[Prototype]] (accessible via __proto__ or Object.getPrototypeOf()).
+- If a property or method is not found in an object, JavaScript looks up the prototype chain to find it.
+Example:
+```javascript
+// Parent object
+const person = {
+  greet: function() {
+    console.log(`Hello, my name is ${this.name}`);
+  }
+};
+
+// Child object inheriting from person
+const student = {
+  name: "Vikas",
+  study: function() {
+    console.log(`${this.name} is studying`);
+  }
+};
+
+// Set prototype
+Object.setPrototypeOf(student, person);
+
+student.greet(); // Inherited from person
+student.study(); // Own method
+
+```
+
+## 22. | Method    | Executes Immediately? | Notes                                                                                    |
+| --------- | ---------------------  | ---------------------------------------------------------------------------------------- |
+| **call**  | ✅ Yes                 | The function is **executed immediately** with the given `this` and arguments.            |
+| **apply** | ✅ Yes                 | Same as `call`, but arguments are passed as an **array**.                                |
+| **bind**  | ❌ No                  | **Does not execute immediately**. It returns a **new function** that you can call later. |
+Example:
+```javascript
+const person = { name: "Vikas" };
+
+function greet(msg) {
+  console.log(msg + ", " + this.name);
+}
+
+// call → executes immediately
+greet.call(person, "Hello"); // Output: Hello, Vikas
+
+// apply → executes immediately
+greet.apply(person, ["Hi"]); // Output: Hi, Vikas
+
+// bind → returns a new function, does not execute immediately
+const greetVikas = greet.bind(person, "Hey");
+greetVikas(); // Output: Hey, Vikas
+
+```
+
+
